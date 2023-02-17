@@ -1,12 +1,16 @@
-const basicURL = "https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts";
+const basicURL = "http://examone.joakimkjode.com/blog//wp-json/wp/v2/posts";
 
 const viewSpecificPost = document.getElementById("view");
 const blogPostId = new URLSearchParams(window.location.search).get("id");
 const blogSection = document.getElementById("postSection");
 
-// fetch(basicURL)
-//   .then((resp) => resp.json())
-//   .then((data) => console.log(data));
+fetch("http://examone.joakimkjode.com/blog//wp-json/wp/v2/posts")
+  .then((response) => response.json())
+  .then((data) => {
+    data.forEach((post) => {
+      console.log(post.id);
+    });
+  });
 
 const fetchPost = async () => {
   try {
@@ -20,18 +24,51 @@ const fetchPost = async () => {
   }
 };
 
-function displayPosts(posts) {
-  posts.forEach((post) => {
-    console.log(post.title);
-    blogSection.innerHTML += `
-    <div class="post">
-    <h2 class="postTitle">${post.title}</h2>
-    <a href="./specific.html?id=${post.id}><img class="postImage">${post.image}</img></a>
-    <p class="postTxt">${post.content}</p>
-    <div>`;
+fetch("http://examone.joakimkjode.com/blog//wp-json/wp/v2/posts")
+  .then((response) => response.json())
+  .then((data) => {
+    data.forEach((post) => {
+      console.log(post.title);
+      console.log(post.featured_media.source_url);
+    });
+    return data;
   });
-}
+
+fetch(basicURL)
+  .then((response) => response.json())
+  .then((data) => {
+    data.forEach((post) => {
+      let postHTML = `
+      <div class="post">
+      <h2 class="postTitle">${post.title}</h2>
+      <a class="postImage" src="${post.featured_media.source_url}" alt="${post.featured_media.slug}"/>
+      <p class="postText">${post.content.rendered}</p>
+      <div>`;
+      blogSection.innerHTML += postHTML;
+    });
+  });
 
 fetchPost().then((data) => {
   console.log(data);
+  if (blogPostId) {
+    const blogPostId = new URLSearchParams(window.location.search).get("id");
+    const blogTitle = data.find((post) => post.title.rendered == blogTitle);
+    const post = data.find((post) => post.id == post);
+    const postImage = post.link.src;
+    console.log(blogPostId);
+  }
 });
+
+displayPosts();
+
+// function displayPosts(id) {
+//   i.forEach((blogPostId) => {
+//     console.log(post.id);
+//   });
+// }
+
+// for (let i = 0; i < 9; i++) {
+//   "the ID for the post is" + i;
+// }
+
+// console.log(i);

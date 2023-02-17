@@ -133,8 +133,16 @@ section {
 
 }
 
+#postSection {
+    width: 15rem;
+    display: grid;
+    padding-top: 10rem;
+    margin-bottom: 5rem;
+    align-content: auto 0;
+}
+
 .post {
-    width: 80%;
+    width: 100%;
     margin-top: 5rem;
     margin-left: 5rem;
     border: red 1px solid;
@@ -144,18 +152,18 @@ section {
     size: 100%;
     margin-left: 20rem;
     border: #ffff00 1px solid;
+    padding-top: 2rem;
     }
 
 .postTitle {
     font-family: Bebas Kai;
     font-size: 5rem;
-    margin-left: 20rem;
     border: blue 1px solid;
 }
 
-.postTxt {
+.postText {
     font-family: Open sans; /*fix font*/
-    width: 50vw;
+    width: 100%;
     margin-left: 15vw; 
     border: green 1px solid;
 }
@@ -168,7 +176,7 @@ footer {
     width: 100%;
     height: 3rem;
     padding-top: 10px;
-    position: absolute;
+    /* position: fixed; */
     bottom: 0;
     left: 0;
     text-align: center;
