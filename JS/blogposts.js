@@ -28,23 +28,13 @@ fetch(basicURL)
   .then((response) => response.json())
   .then((data) => {
     data.forEach((post) => {
-      console.log(post.title);
+      console.log(JSON.stringify(post.featured_media));
+      console.log(JSON.stringify(post.title.rendered));
+      console.log(JSON.stringify(post.content.rendered));
       console.log(post.featured_media.source_url);
     });
     return data;
   });
-
-// fetch("https://example.com/data.json")
-//   .then((response) => response.json())
-//   .then((posts) => {
-//     posts.forEach((post) => {
-//       let parser = new DOMParser();
-//       let doc = parser.parseFromString(post.content.rendered, "text/html");
-//       let textDiv = doc.querySelector("div");
-//       let imageDiv = doc.querySelectorAll("img");
-//       // do something with the textDiv and imageDiv
-//     });
-//   });
 
 fetch(basicURL)
   .then((response) => response.json())
@@ -70,17 +60,3 @@ fetchPost().then((data) => {
     console.log(blogPostId);
   }
 });
-
-// displayPosts();
-
-// function displayPosts(id) {
-//   i.forEach((blogPostId) => {
-//     console.log(post.id);
-//   });
-// }
-
-// for (let i = 0; i < 9; i++) {
-//   "the ID for the post is" + i;
-// }
-
-// console.log(i);

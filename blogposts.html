@@ -4,27 +4,87 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog overview</title>
+    <meta
+      name="keywords"
+      content="simracing, iracing, team, slowmo, racing, simulator, esports"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Blogposts - The iRacer blog</title>
+    <script type="module" src="/JS/blogposts.js"></script>
+    <script type="module" src="/JS/menu.js"></script>
   </head>
   <body>
     <header>
-      <h1>The iRacer blog</h1>
-      <nav>
-        <ul>
-          <li href="/index.html">home</li>
-          <li href="/about.html">about</li>
-          <li href="/blogposts.html">blog posts</li>
-          <li href="/contact.html">contact</li>
-        </ul>
-      </nav>
-    </header>
-    <section>
-      <div class="blogpost">
-        <h1 class="heading"></h1>
-        <div class="imgpreview"></div>
-        <p class="contentpreview"></p>
+      <!-- <img src="/images/team/Streamer_nothing.png" alt="" /> -->
+      <img class="logo" src="/images/team/W.png" alt="W logo" />
+      <h1 id="pageTitle">Blogposts</h1>
+      <div class="navContainer">
+        <nav class="navbar">
+          <ul class="navMenu">
+            <li class="navItem">
+              <a class="menuItem" href="/index.html">Home</a>
+            </li>
+            <li class="navItem">
+              <a class="menuItem" href="/about.html">About</a>
+            </li>
+            <li class="navItem">
+              <a class="menuItem" href="/blogposts.html">Blog posts</a>
+            </li>
+            <li class="navItem">
+              <a class="menuItem" href="/contact.html">Contact</a>
+            </li>
+          </ul>
+          <div class="hamburger">
+            <svg
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 122.9 86.3"
+              style="enable-background: new 0 0 122.9 86.3"
+              xml:space="preserve"
+            >
+              <style type="text/css">
+                .st0 {
+                  fill-rule: evenodd;
+                  clip-rule: evenodd;
+                  fill: #ffff00;
+                }
+              </style>
+              <path
+                class="st0"
+                d="M30.1,28.5c-5.3-2.7-4.7-5.7,0.6-5.4l1.2,2.2l2.4-7.6c1-3,2.6-5.7,5.7-5.7h19.1v3H41.1c-2.4,0-3.6,2.1-4.4,4.4
+	l-2.3,7.7l0,0h24.7v13.7c0,2.5,2,4.5,4.5,4.5h20.4l-0.1,2.3v3.2c0,1-0.8,1.8-1.8,1.8h-7.6c-1,0-1.8-0.8-1.8-1.8v-1.4h-36v1.4
+	c0,1-0.8,1.8-1.8,1.8c0,0,0,0,0,0h-7.6c-1,0-1.8-0.8-1.8-1.8v-4.1c0-0.1,0-0.2,0-0.3C25,39,24.2,32.3,30.1,28.5L30.1,28.5z
+	 M66.2,7.2h-1.4c-0.9,0-1.7,0.7-1.7,1.7c0,0,0,0,0,0v31.2c0,0.9,0.7,1.7,1.7,1.7c0,0,0,0,0,0h23c0.9,0,1.7-0.7,1.7-1.7c0,0,0,0,0,0
+	v-1.5h-1.9v1.4H65.1V9.1h1.1L66.2,7.2L66.2,7.2z M73.9,31.5h16.4v-1.6H73.9V31.5z M73.9,26.7h16.4v-1.6H73.9V26.7z M73.9,12.3h5.5
+	v-1.6h-5.5C73.9,10.7,73.9,12.3,73.9,12.3z M73.9,17.1h7.8v-1.6h-7.8C73.9,15.5,73.9,17.1,73.9,17.1z M73.9,21.9h16.6v-1.6H73.9
+	V21.9L73.9,21.9z M86.3,6.5l6.1,6.4h-6.1V6.5z M95.8,13.7c0-0.5-0.3-0.9-0.7-1l-9-9.5c-0.2-0.2-0.5-0.4-0.8-0.4h-15
+	c-1,0-1.8,0.8-1.8,1.8l0,0v30c0,0.5,0.2,0.9,0.5,1.3c0.3,0.3,0.8,0.5,1.3,0.5H94c1,0,1.8-0.8,1.8-1.8l0,0V13.7z M93.8,15v19.6H70.5
+	V5h13.8v9c0,0.6,0.5,1,1,1L93.8,15z M39.8,37.3l-6.8-0.9c-1.6-0.2-2,0.5-1.5,1.9l0.7,1.8c0.2,0.4,0.5,0.8,0.9,1
+	c0.5,0.3,1,0.4,1.5,0.4l6,0c1.5,0,2.1-0.6,1.6-1.9C42.1,38.4,41.1,37.5,39.8,37.3L39.8,37.3z"
+              />
+              <path class="st0" d="M-54.8,112.2" />
+              <polyline
+                class="st0"
+                points="42.2,57.3 44.6,54.2 60.5,65.2 76.5,54.2 78.8,57.2 62.1,69.1 58.9,69 "
+              />
+              <polyline
+                class="st0"
+                points="42.2,64.7 44.6,61.6 60.5,72.7 76.5,61.6 78.8,64.7 62.1,76.5 58.9,76.4 "
+              />
+            </svg>
+            <i class="menuIcon material-icons"></i>
+            <i class="closeIcon material-icons"></i>
+          </div>
+        </nav>
       </div>
-    </section>
-    <footer>iRacer blog &#169; Instagram Facebook</footer>
+    </header>
+    <section id="postSection"></section>
+    <footer>
+      <p class="footerContent">iRacer blog &#169;</p>
+    </footer>
   </body>
 </html>
