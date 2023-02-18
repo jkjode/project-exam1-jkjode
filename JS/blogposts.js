@@ -1,4 +1,5 @@
-const basicURL = "https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts";
+const basicURL =
+  "https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts?_embed";
 
 const viewSpecificPost = document.getElementById("view");
 const blogPostId = new URLSearchParams(window.location.search).get("id");
@@ -52,7 +53,7 @@ fetch(basicURL)
 
 fetchPost().then((data) => {
   console.log(data);
-  if (blogPostId) {
+  if (viewSpecificPost) {
     const blogPostId = new URLSearchParams(window.location.search).get("id");
     const blogTitle = data.find((post) => post.title.rendered == blogTitle);
     const post = data.find((post) => post.id == post);
