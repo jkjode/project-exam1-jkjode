@@ -1,10 +1,10 @@
-const basicURL = "http://examone.joakimkjode.com/blog//wp-json/wp/v2/posts";
+const basicURL = "https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts";
 
 const viewSpecificPost = document.getElementById("view");
 const blogPostId = new URLSearchParams(window.location.search).get("id");
 const blogSection = document.getElementById("postSection");
 
-fetch("http://examone.joakimkjode.com/blog//wp-json/wp/v2/posts")
+fetch(basicURL)
   .then((response) => response.json())
   .then((data) => {
     data.forEach((post) => {
@@ -24,7 +24,7 @@ const fetchPost = async () => {
   }
 };
 
-fetch("http://examone.joakimkjode.com/blog//wp-json/wp/v2/posts")
+fetch(basicURL)
   .then((response) => response.json())
   .then((data) => {
     data.forEach((post) => {
