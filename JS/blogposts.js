@@ -34,15 +34,27 @@ fetch("http://examone.joakimkjode.com/blog//wp-json/wp/v2/posts")
     return data;
   });
 
+// fetch("https://example.com/data.json")
+//   .then((response) => response.json())
+//   .then((posts) => {
+//     posts.forEach((post) => {
+//       let parser = new DOMParser();
+//       let doc = parser.parseFromString(post.content.rendered, "text/html");
+//       let textDiv = doc.querySelector("div");
+//       let imageDiv = doc.querySelectorAll("img");
+//       // do something with the textDiv and imageDiv
+//     });
+//   });
+
 fetch(basicURL)
   .then((response) => response.json())
   .then((data) => {
     data.forEach((post) => {
       let postHTML = `
       <div class="post">
-      <h2 class="postTitle">${post.title}</h2>
+      <h2 class="postTitle">${post.title.rendered}</h2>
       <a class="postImage" src="${post.featured_media.source_url}" alt="${post.featured_media.slug}"/>
-      <p class="postText">${post.content.rendered}</p>
+      <div class="postText">${post.content.rendered}</div>
       <div>`;
       blogSection.innerHTML += postHTML;
     });
@@ -59,7 +71,7 @@ fetchPost().then((data) => {
   }
 });
 
-displayPosts();
+// displayPosts();
 
 // function displayPosts(id) {
 //   i.forEach((blogPostId) => {

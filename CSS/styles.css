@@ -134,37 +134,41 @@ section {
 }
 
 #postSection {
-    width: 15rem;
-    display: grid;
+    margin: 0 auto;
     padding-top: 10rem;
     margin-bottom: 5rem;
     align-content: auto 0;
+    border: orange 5px solid;
 }
 
 .post {
-    width: 100%;
+    width: 90%;
     margin-top: 5rem;
     margin-left: 5rem;
-    border: red 1px solid;
+    border: red 4px solid;
 }
 
 .postImage {
-    size: 100%;
-    margin-left: 20rem;
-    border: #ffff00 1px solid;
+    size: 90%;
+    border: #ffff00 3px solid;
     padding-top: 2rem;
+    margin: 0 auto;
     }
 
 .postTitle {
+    width: 100%;
     font-family: Bebas Kai;
     font-size: 5rem;
     border: blue 1px solid;
+    margin: 0 auto;
 }
 
 .postText {
+    margin: 0 auto;
     font-family: Open sans; /*fix font*/
-    width: 100%;
-    margin-left: 15vw; 
+    width: 90%;
+    padding: 2rem;
+    color: black;
     border: green 1px solid;
 }
 
