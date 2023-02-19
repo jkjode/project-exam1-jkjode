@@ -1,7 +1,7 @@
 const basicURL =
   "https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts?_embed";
 
-const viewSpecificPost = document.getElementById("view");
+const viewPost = document.getElementById("viewSpecificPost");
 const blogPostId = new URLSearchParams(window.location.search).get("id");
 const blogSection = document.getElementById("postSection");
 
@@ -41,42 +41,64 @@ fetch(basicURL)
     return data;
   });
 
-fetch(basicURL)
-  .then((response) => response.json())
-  .then((data) => {
-    data.forEach((post) => {
-      console.log(post._embedded["wp:featuredmedia"]);
-      let postHTML = `
+function displayPosts(posts) {
+  posts.forEach((post) => {
+    console.log(post.id);
+    blogSection.innerHTML += `
       <div class="post">
       <a href=./specific.html?id=${post.id}>
       <h2 class="postTitle">${post.title.rendered}</h2>
       <img class="postImage" src="${
         post._embedded["wp:featuredmedia"][0].source_url
       }" alt="${post.featured_media.slug}"/>
-      
       <div class="postText">${
         post.excerpt.rendered
       }<p class="postDate">Posted: ${getShorterDate(post.date)}</p></div>
       </a>
       <div>`;
-      blogSection.innerHTML += postHTML;
-    });
   });
+}
+
+// fetch(basicURL)
+//   .then((response) => response.json())
+//   .then((data) => {
+//     data.forEach((post) => {
+//       console.log(post._embedded["wp:featuredmedia"]);
+//       let postHTML = `
+//       <div class="post">
+//       <a href=./specific.html?id=${post.id}>
+//       <h2 class="postTitle">${post.title.rendered}</h2>
+//       <img class="postImage" src="${
+//         post._embedded["wp:featuredmedia"][0].source_url
+//       }" alt="${post.featured_media.slug}"/>
+
+//       <div class="postText">${
+//         post.excerpt.rendered
+//       }<p class="postDate">Posted: ${getShorterDate(post.date)}</p></div>
+//       </a>
+//       <div>`;
+//       blogSection.innerHTML += postHTML;
+//     });
+//   });
 
 fetchPost().then((data) => {
   console.log(data);
-  if (viewSpecificPost) {
+  if (viewPost) {
     const blogPostId = new URLSearchParams(window.location.search).get("id");
-    const blogTitle = data.find((post) => post.title.rendered == blogTitle);
-    const post = data.find((post) => post.id == post);
+    const blogText = data.find((post) => post["wp:content"]);
+    const post = data.find((post) => post.id == blogPostId);
     console.log(blogPostId);
-    viewSpecificPost.innerHTML = `
+    viewPost.innerHTML = `
     <div class="chosenPost">
-    <H2 class="postSpecific">${post.title.rendered}</H2>
-    <img class="postImage">${post._embedded["wp:featuredmedia"][0].source_url}/>
-    <div class"postText">${post.content.rendered}</div>
+    <h2 class="postSpecific">${post.title.rendered}</h2>
+    <img class="postImage" src="${
+      post._embedded["wp:featuredmedia"][0].source_url
+    }">
+    <div class"postText">${blogText}</div>
     <div class="postDate">${getShorterDate(post.date)}</div>
     </div>
     `;
+  } else {
+    displayPosts(data);
   }
 });

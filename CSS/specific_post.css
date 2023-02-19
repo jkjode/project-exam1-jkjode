@@ -1,0 +1,19 @@
+#viewSpecificPost {
+    padding-top: 150px;
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.chosenPost {
+    margin: 0 auto;
+    margin-top: 200px;
+}
+
+.postImage {
+    width: 100%;
+}
+
+.postSpecific {
+    font-family: Bebas Kai;
+    font-size: xxx-large;
+}
