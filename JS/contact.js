@@ -13,13 +13,13 @@ const emailError = document.querySelector("#emailError");
 function validateForm(event) {
   event.preventDefault();
 
-  if (checkLength(theName.value, 0) === true) {
+  if (checkLength(theName.value, 4) === true) {
     nameError.style.display = "none";
   } else {
     nameError.style.display = "block";
   }
 
-  if (checkLength(subject.value, 10) === true) {
+  if (checkLength(subject.value, 14) === true) {
     subjectError.style.display = "none";
   } else {
     subjectError.style.display = "block";
@@ -31,7 +31,7 @@ function validateForm(event) {
     emailError.style.display = "block";
   }
 
-  if (checkLength(address.value, 25) === true) {
+  if (checkLength(message.value, 24) === true) {
     addressError.style.display = "none";
   } else {
     addressError.style.display = "block";

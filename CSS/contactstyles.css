@@ -2,11 +2,35 @@
     box-sizing: border-box;
 }
 
-.contactlayout {
-    display: block;
+:root{
+    --sm-color: #ffff00;
 }
 
-.button, a {
+@font-face {
+    font-family: Bebas Kai;
+    src: url(/font/BebasKai.ttf) format("truetype");
+    font-family: Territory;
+    src: url(/font/Territory.ttf) format("truetype");
+}
+
+.contact {
+    /* width: 100vw;  */
+    border: red 2px solid;
+    /* align-content: center; */
+    margin: 0 auto;
+}
+
+.contactlayout {
+    width: 50%;
+    margin: 0 auto;
+    padding: 15rem 0;
+    }
+
+.contactForm {
+    margin: 0 auto;
+}
+
+.button {
     color: white;
     margin-right: 1rem;
     text-decoration: none;
@@ -22,17 +46,33 @@ input {
     margin-top: 2px;
     padding: 10px;
     font-size: 16px;
+    border: black 2px solid;
+    /* height: 80px; */
+}
+
+#message {
+    height: 100px;
+    margin-bottom: 30px;
+}
+
+label {
+    width: 40rem;
+    font-family: Bebas Kai;
+    font-size: large;
 }
 
 button, .button {
-    background: #3466AF;
+    /* background: #3466AF; */
+    background-image: url(/images/team/Wallpaper_nothing.png);
     border: none;
-    width: 200px;
+    width: 150px;
     padding: 1rem;
-    color: white;
+    color: var(--sm-color);
     margin-top: 10px;
     cursor: pointer;
     border-radius: 0.2rem;
+    font-family: Bebas Kai;
+    font-size: x-large;
 }
 
 label {
@@ -45,4 +85,15 @@ label {
     color: red;
     font-size: 0.9rem;
     margin-top: 2px;
+}
+
+@media (max-width:1020px){
+    .contactlayout {
+        width: 20rem;
+        padding-top: 190px;
+    }
+
+    label{
+        width: 20rem;
+    }
 }

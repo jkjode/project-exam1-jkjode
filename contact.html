@@ -9,7 +9,7 @@
       content="simracing, iracing, team, slowmo, racing, simulator, esports"
     />
     <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/CSS/contactstyles.js">
+    <link rel="stylesheet" href="/css/contactstyles.css" />
     <title>Contact - The iRacer blog</title>
     <script type="module" src="/JS/blogposts.js"></script>
     <script type="module" src="/JS/menu.js"></script>
@@ -88,6 +88,7 @@ c0.5,0.3,1,0.4,1.5,0.4l6,0c1.5,0,2.1-0.6,1.6-1.9C42.1,38.4,41.1,37.5,39.8,37.3L3
         <!-- </div> -->
       </div>
     </header>
+    <main class="contact">
     <div class="contactlayout">
       <div class="contactform">
           <form id="contactForm">
@@ -98,7 +99,6 @@ c0.5,0.3,1,0.4,1.5,0.4l6,0c1.5,0,2.1-0.6,1.6-1.9C42.1,38.4,41.1,37.5,39.8,37.3L3
                 </label>
                 <div class="form-error" id="nameError">Please enter your name</div>
               </div>
-      
               <div>
                   <label>
                     Email (required)
@@ -108,22 +108,28 @@ c0.5,0.3,1,0.4,1.5,0.4l6,0c1.5,0,2.1-0.6,1.6-1.9C42.1,38.4,41.1,37.5,39.8,37.3L3
                     Please enter a valid email address
                   </div>
                 </div>
-      
+                <div>
+                  <label>
+                    Subject (required)
+                    <input name="subject" id="subject" />
+                  </label>
+                  <div class="form-error" id="nameError">Please enter your subject</div>
+                </div>
               <div class="message">
                 <label>
                   Your message (must have 10 characters)
-                  <input name="subject" id="subject" />
+                  <input name="message" id="message" />
                 </label>
                 <div class="form-error" id="subjectError">
-                  Your message must be at least 10 characters
+                  Your message must be at least 25 characters
                 </div>
               </div>
-      
               <button class="button">Submit<button>
               <a class="button" href="/index.html">Back</a>
             </form>
       
       </div>
+    </main>
           <footer>
       <p class="footerContent">iRacer blog &#169;</p>
     </footer>
