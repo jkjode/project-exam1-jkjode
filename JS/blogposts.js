@@ -25,6 +25,10 @@ const fetchPost = async () => {
   }
 };
 
+function getShorterDate(newString) {
+  return newString.substring(0, 9);
+}
+
 fetch(basicURL)
   .then((response) => response.json())
   .then((data) => {
@@ -41,11 +45,17 @@ fetch(basicURL)
   .then((response) => response.json())
   .then((data) => {
     data.forEach((post) => {
+      console.log(post._embedded["wp:featuredmedia"]);
       let postHTML = `
       <div class="post">
       <h2 class="postTitle">${post.title.rendered}</h2>
-      <a class="postImage" src="${post.featured_media.source_url}" alt="${post.featured_media.slug}"/>
-      <div class="postText">${post.content.rendered}</div>
+      <img class="postImage" src="${
+        post._embedded["wp:featuredmedia"][0].source_url
+      }" alt="${post.featured_media.slug}"/>
+      <div class="postText">${
+        post.excerpt.rendered
+      }<p class="postDate">Posted: ${getShorterDate(post.date)}</p></div>
+      
       <div>`;
       blogSection.innerHTML += postHTML;
     });

@@ -161,7 +161,7 @@ section {
 
 #postSection {
     margin: 0 auto;
-    padding-top: 10rem;
+    padding-top: 20rem;
     margin-bottom: 5rem;
     align-content: auto 0;
     border: orange 5px solid;
@@ -182,29 +182,32 @@ section {
     }
 
 .postTitle {
-    /* width: 100%;
+    /* width: 100%;*/
     font-family: Bebas Kai;
-    font-size: 5rem;
+    font-size: 3rem;
     border: blue 1px solid;
-    margin: 0 auto; */
+    margin: 0 auto;
     max-width: 700px;
-    margin: 0;
+    padding: 3rem;
 }
 
 .postText {
     margin: 0 auto;
     font-family: Open sans; /*fix font*/
-    /* width: 90%; */
+    font-size: medium;
     padding: 2rem;
     color: black;
     border: green 1px solid;
     max-width: 700px;
 }
 
-/* .postText img {
-    width: 300px;
-    margin: 0 auto;
-} */
+.postDate {
+    padding: 1rem 0;
+}
+
+.postText img {
+    padding-top: 5rem;
+}
 
 /* FOOTER */
 
@@ -230,7 +233,7 @@ footer {
 @media(max-width:1020px){
 
     header {
-        padding-bottom: .5rem;
+        padding-bottom: 0;
     }
 
     .logo {
@@ -267,7 +270,7 @@ footer {
         position: absolute;
         left: 0;
         right: 0;
-        top: 140px;
+        top: 130px;
         width: 100%;
         /* width: 100vw; */
         /* display: hidden; */

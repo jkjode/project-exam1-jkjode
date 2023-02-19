@@ -1,0 +1,38 @@
+#postSection {
+    width: 90vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5rem;
+}
+
+.post {
+    max-width: 350px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.postTitle {
+    font-size: xx-large;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
+.postImage {
+    width: 80%;
+    height: 200px;
+    object-fit: cover;
+    padding: 0 2rem;
+}
+
+@media(max-width:1020px){ 
+    #postSection {
+        /* display: grid; */
+        grid-template-columns: repeat(1, 1fr) !important;
+        /* gap: 0rem; */
+    }
+
+    .post {
+        margin: 0 auto;
+    }
+}
