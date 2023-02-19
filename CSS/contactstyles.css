@@ -52,7 +52,6 @@ input {
 
 #message {
     height: 100px;
-    margin-bottom: 30px;
 }
 
 label {
@@ -73,6 +72,7 @@ button, .button {
     border-radius: 0.2rem;
     font-family: Bebas Kai;
     font-size: x-large;
+    margin-top: 30px;
 }
 
 label {

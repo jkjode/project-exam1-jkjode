@@ -48,14 +48,16 @@ fetch(basicURL)
       console.log(post._embedded["wp:featuredmedia"]);
       let postHTML = `
       <div class="post">
+      <a href=./specific.html?id=${post.id}>
       <h2 class="postTitle">${post.title.rendered}</h2>
       <img class="postImage" src="${
         post._embedded["wp:featuredmedia"][0].source_url
       }" alt="${post.featured_media.slug}"/>
+      
       <div class="postText">${
         post.excerpt.rendered
       }<p class="postDate">Posted: ${getShorterDate(post.date)}</p></div>
-      
+      </a>
       <div>`;
       blogSection.innerHTML += postHTML;
     });
@@ -67,7 +69,14 @@ fetchPost().then((data) => {
     const blogPostId = new URLSearchParams(window.location.search).get("id");
     const blogTitle = data.find((post) => post.title.rendered == blogTitle);
     const post = data.find((post) => post.id == post);
-    const postImage = post.link.src;
     console.log(blogPostId);
+    viewSpecificPost.innerHTML = `
+    <div class="chosenPost">
+    <H2 class="postSpecific">${post.title.rendered}</H2>
+    <img class="postImage">${post._embedded["wp:featuredmedia"][0].source_url}/>
+    <div class"postText">${post.content.rendered}</div>
+    <div class="postDate">${getShorterDate(post.date)}</div>
+    </div>
+    `;
   }
 });
