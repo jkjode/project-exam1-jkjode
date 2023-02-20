@@ -140,6 +140,7 @@ function displayPreviewNew(posts, changeDirection = "none") {
   }
 }
 
+
 /* test */
 
 fetchPost().then((data) => {
