@@ -16,6 +16,7 @@
     padding-bottom: 1.5rem !important;
     padding-left: 2rem !important;
     padding-right: 2rem !important;
+    color: black;
 }
 
 .postImage {
@@ -27,9 +28,8 @@
 
 @media(max-width:1020px){ 
     #postSection {
-        /* display: grid; */
         grid-template-columns: repeat(1, 1fr) !important;
-        /* gap: 0rem; */
+        padding-top: 15rem;
     }
 
     .post {

@@ -1,6 +1,6 @@
 #viewSpecificPost {
     padding-top: 150px;
-    width: 80vw;
+    width: 50vw;
     margin: 0 auto;
 }
 
@@ -10,10 +10,32 @@
 }
 
 .postImage {
-    width: 100%;
+    width: 80%;
+    margin: 4rem 0;
 }
 
 .postSpecific {
     font-family: Bebas Kai;
     font-size: xxx-large;
+}
+
+p {
+    /* color: red;
+    background-color: pink; */
+    width: 80%;
+}
+
+.postDate {
+    margin: 4rem 0;
+}
+
+
+@media (max-width:1020px) {
+    #viewSpecificPost {
+        padding-top: 2rem;
+    }
+
+    .postImage {
+        margin-top: 2rem;
+    }
 }

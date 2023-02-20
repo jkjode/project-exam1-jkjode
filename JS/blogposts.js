@@ -59,43 +59,22 @@ function displayPosts(posts) {
   });
 }
 
-// fetch(basicURL)
-//   .then((response) => response.json())
-//   .then((data) => {
-//     data.forEach((post) => {
-//       console.log(post._embedded["wp:featuredmedia"]);
-//       let postHTML = `
-//       <div class="post">
-//       <a href=./specific.html?id=${post.id}>
-//       <h2 class="postTitle">${post.title.rendered}</h2>
-//       <img class="postImage" src="${
-//         post._embedded["wp:featuredmedia"][0].source_url
-//       }" alt="${post.featured_media.slug}"/>
-
-//       <div class="postText">${
-//         post.excerpt.rendered
-//       }<p class="postDate">Posted: ${getShorterDate(post.date)}</p></div>
-//       </a>
-//       <div>`;
-//       blogSection.innerHTML += postHTML;
-//     });
-//   });
-
 fetchPost().then((data) => {
   console.log(data);
   if (viewPost) {
     const blogPostId = new URLSearchParams(window.location.search).get("id");
-    const blogText = data.find((post) => post["wp:content"]);
     const post = data.find((post) => post.id == blogPostId);
-    console.log(blogPostId);
+    const blogText = post.content.rendered;
+    // console.log(blogPostId);
+    // console.log(blogText);
     viewPost.innerHTML = `
     <div class="chosenPost">
     <h2 class="postSpecific">${post.title.rendered}</h2>
     <img class="postImage" src="${
       post._embedded["wp:featuredmedia"][0].source_url
     }">
-    <div class"postText">${blogText}</div>
-    <div class="postDate">${getShorterDate(post.date)}</div>
+    <p class="postText">${blogText}</p>
+    <div class="postDate">Written ${getShorterDate(post.date)}</div>
     </div>
     `;
   } else {

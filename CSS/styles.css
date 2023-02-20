@@ -164,7 +164,7 @@ section {
     padding-top: 20rem;
     margin-bottom: 5rem;
     align-content: auto 0;
-    border: orange 5px solid;
+    /* border: orange 5px solid; */
 }
 
 .post {
@@ -185,7 +185,7 @@ section {
     /* width: 100%;*/
     font-family: Bebas Kai;
     font-size: 3rem;
-    border: blue 1px solid;
+    /* border: blue 1px solid; */
     margin: 0 auto;
     max-width: 700px;
     padding: 3rem;
@@ -197,7 +197,7 @@ section {
     font-size: medium;
     padding: 2rem;
     color: black;
-    border: green 1px solid;
+    /* border: green 1px solid; */
     max-width: 700px;
 }
 
