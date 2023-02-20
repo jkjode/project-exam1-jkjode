@@ -33,6 +33,7 @@ header {
     margin-top: 0;
     border-bottom: var(--sm-color) solid 1px;
     padding-bottom: 2rem;
+    z-index: 1;
 }
 
 .desktopThing {

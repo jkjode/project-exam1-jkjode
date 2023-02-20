@@ -1,9 +1,10 @@
 const basicURL =
-  "https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts?_embed";
+  "https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts?_embed&per_page=20";
 
 const viewPost = document.getElementById("viewSpecificPost");
 const blogPostId = new URLSearchParams(window.location.search).get("id");
 const blogSection = document.getElementById("postSection");
+const blogPreview = document.getElementById("blogPreview");
 
 fetch(basicURL)
   .then((response) => response.json())
@@ -59,6 +60,29 @@ function displayPosts(posts) {
   });
 }
 
+/* test */
+
+function displayPreview(posts) {
+  posts.slice(0, 4).forEach((post) => {
+    console.log(post.id);
+    blogPreview.innerHTML += `
+    <div class="post">
+      <a href=./specific.html?id=${post.id}>
+      <h2 class="postTitle">${post.title.rendered}</h2>
+      <img class="postImage" src="${
+        post._embedded["wp:featuredmedia"][0].source_url
+      }" alt="${post.featured_media.slug}"/>
+      <div class="postText">${
+        post.excerpt.rendered
+      }<p class="postDate">Posted: ${getShorterDate(post.date)}</p></div>
+      </a>
+      <div>
+      `;
+  });
+}
+
+/* test */
+
 fetchPost().then((data) => {
   console.log(data);
   if (viewPost) {
@@ -77,6 +101,8 @@ fetchPost().then((data) => {
     <div class="postDate">Written ${getShorterDate(post.date)}</div>
     </div>
     `;
+  } else if (blogPreview) {
+    displayPreview(data);
   } else {
     displayPosts(data);
   }
