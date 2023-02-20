@@ -2,7 +2,7 @@
     padding-top: 20rem;
     width: 80vw;
     margin: 0 auto;
-
+    position: relative;
 }
 
 .carousel {
@@ -102,6 +102,21 @@
 
 .postText {
     font-family: Oswald;
+}
+
+.allPosts {
+    background-image: url(/images/team/Wallpaper_nothing.png);
+    border: none;
+    width: 150px;
+    padding: 1rem;
+    color: var(--sm-color);
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 0.2rem;
+    font-family: Bebas Kai;
+    font-size: x-large;
+    position: absolute;
+    margin-top: 40rem;
 }
 
 @media (max-width:1020px){
