@@ -22,10 +22,12 @@
 p {
     /* color: red;
     background-color: pink; */
+    font-family: Oswald;
     width: 80%;
 }
 
 .postDate {
+    font-family: Oswald;
     margin: 4rem 0;
 }
 

@@ -26,6 +26,10 @@
     padding: 0 2rem;
 }
 
+.postText {
+    font-family: Oswald;
+}
+
 @media(max-width:1020px){ 
     #postSection {
         grid-template-columns: repeat(1, 1fr) !important;

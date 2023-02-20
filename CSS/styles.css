@@ -3,6 +3,8 @@
     src: url(/font/BebasKai.ttf) format("truetype");
     font-family: Territory;
     src: url(/font/Territory.ttf) format("truetype");
+    font-family: Oswald;
+    src: url(/Font/Oswald-VariableFont_wght.ttf) format("truetype");
 }
 
 :root{
@@ -75,7 +77,7 @@ li {
 
 a {
     color: var(--sm-color);
-    text-decoration: none;
+    text-decoration: none;    
 }
 
 .navContainer {
