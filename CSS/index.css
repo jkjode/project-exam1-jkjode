@@ -1,14 +1,16 @@
 .previewSection {
-    padding-top: 20rem;
+    padding-top: 15rem;
     width: 80vw;
     margin: 0 auto;
     position: relative;
+    border: green 2px solid;
 }
 
 .carousel {
     width: 80vw;
     height: 100vh;
     position: relative;
+    border: darkblue 2px;
 }
 
 .carousel > ul {
@@ -42,11 +44,11 @@
     font-size: 4rem;
     top: 25%;
     transform: translateY(-50%);
-    color: rgba(0, 0, 0, .5);
+    color: rgba(0, 0, 0, .7);
     cursor: pointer;
     border-radius: 0.25rem;
     padding: 0 .5rem;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .carousel-button:hover,
@@ -56,11 +58,11 @@
 }
 
 .carousel-button.prev {
-    left: 0;
+    left: -4rem;
 }
 
 .carousel-button.next {
-    right: 0;
+    right: -4rem;
 }
 
 .slide {
@@ -68,7 +70,7 @@
     flex-direction: row;
     flex-wrap: no-wrap;
     gap: 2rem;
-    width: 100vw;
+    /* width: 90vw; */
     border: red solid 2px;
     max-width: 1400px;
     margin: 0 auto;
@@ -104,20 +106,28 @@
     font-family: Oswald;
 }
 
-.allPosts {
+.buttonAllPosts {
     background-image: url(/images/team/Wallpaper_nothing.png);
     border: none;
     width: 150px;
     padding: 1rem;
     color: var(--sm-color);
-    margin-top: 10px;
+    /* margin-top: 10px; */
     cursor: pointer;
     border-radius: 0.2rem;
     font-family: Bebas Kai;
     font-size: x-large;
     position: absolute;
-    margin-top: 40rem;
+    margin-top: -22rem;
+    margin-left: 30rem;
+    /* align-content: center;     */
 }
+
+.buttonAllPosts button {
+    margin: 0 auto;
+}
+
+
 
 @media (max-width:1020px){
     #postSection {

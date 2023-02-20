@@ -33,7 +33,7 @@ header {
     margin-top: 0;
     border-bottom: var(--sm-color) solid 1px;
     padding-bottom: 2rem;
-    z-index: 1;
+    z-index: 10;
 }
 
 .desktopThing {
@@ -58,6 +58,22 @@ header {
     margin-left: 15rem; */
     max-height: 5rem;
     }
+
+.aboutThisPage {
+    margin: 2rem 2rem;
+}
+
+.aboutThisPage h2{
+    font-family: Bebas Kai;
+    font-size: xxx-large; 
+    padding-bottom: 2rem;
+}
+
+.aboutThisPage p {
+    font-family: Oswald;
+    font-size: large;
+    padding-bottom: 2rem;
+}
 
 #pageTitle {
     font-family: Territory;

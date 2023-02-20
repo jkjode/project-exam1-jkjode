@@ -1,10 +1,12 @@
 const basicURL =
-  "https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts?_embed&per_page=20";
+  "https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts?_embed&per_page=10";
 
 const viewPost = document.getElementById("viewSpecificPost");
 const blogPostId = new URLSearchParams(window.location.search).get("id");
 const blogSection = document.getElementById("postSection");
 const blogPreview = document.getElementById("blogPreview");
+const nextButton = document.querySelector("#next");
+const prevButton = document.querySelector("#prev");
 
 fetch(basicURL)
   .then((response) => response.json())
@@ -63,6 +65,7 @@ function displayPosts(posts) {
 /* test */
 
 function displayPreview(posts) {
+  blogPreview.innerHTML = "";
   posts.slice(0, 4).forEach((post) => {
     console.log(post.id);
     blogPreview.innerHTML += `
@@ -79,6 +82,62 @@ function displayPreview(posts) {
       <div>
       `;
   });
+}
+
+function displayPreviewNew(posts, changeDirection = "none") {
+  blogPreview.innerHTML = "";
+  if (changeDirection === "none") {
+    posts.slice(0, 4).forEach((post) => {
+      console.log(post.id);
+      blogPreview.innerHTML += `
+    <div class="post">
+      <a href=./specific.html?id=${post.id}>
+      <h2 class="postTitle">${post.title.rendered}</h2>
+      <img class="postImage" src="${
+        post._embedded["wp:featuredmedia"][0].source_url
+      }" alt="${post.featured_media.slug}"/>
+      <div class="postText">${
+        post.excerpt.rendered
+      }<p class="postDate">Posted: ${getShorterDate(post.date)}</p></div>
+      </a>
+      <div>
+      `;
+    });
+  } else if (changeDirection === "next") {
+    posts.slice(4, 8).forEach((post) => {
+      console.log(post.id);
+      blogPreview.innerHTML += `
+    <div class="post">
+      <a href=./specific.html?id=${post.id}>
+      <h2 class="postTitle">${post.title.rendered}</h2>
+      <img class="postImage" src="${
+        post._embedded["wp:featuredmedia"][0].source_url
+      }" alt="${post.featured_media.slug}"/>
+      <div class="postText">${
+        post.excerpt.rendered
+      }<p class="postDate">Posted: ${getShorterDate(post.date)}</p></div>
+      </a>
+      <div>
+      `;
+    });
+  } else if (changeDirection === "previous") {
+    posts.slice(0, 4).forEach((post) => {
+      console.log(post.id);
+      blogPreview.innerHTML += `
+    <div class="post">
+      <a href=./specific.html?id=${post.id}>
+      <h2 class="postTitle">${post.title.rendered}</h2>
+      <img class="postImage" src="${
+        post._embedded["wp:featuredmedia"][0].source_url
+      }" alt="${post.featured_media.slug}"/>
+      <div class="postText">${
+        post.excerpt.rendered
+      }<p class="postDate">Posted: ${getShorterDate(post.date)}</p></div>
+      </a>
+      <div>
+      `;
+    });
+  }
 }
 
 /* test */
@@ -107,3 +166,15 @@ fetchPost().then((data) => {
     displayPosts(data);
   }
 });
+
+if (nextButton) {
+  nextButton.onclick = async function () {
+    await fetchPost().then((posts) => displayPreviewNew(posts, "next"));
+  };
+}
+
+if (prevButton) {
+  prevButton.onclick = async function () {
+    await fetchPost().then((posts) => displayPreviewNew(posts, "previous"));
+  };
+}
