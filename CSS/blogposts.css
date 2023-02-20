@@ -5,12 +5,17 @@
     gap: 5rem;
 }
 
+#pageTitle {
+    font-family: Territory;
+}
+
 .post {
     max-width: 350px;
     background-color: rgba(255, 255, 255, 0.5);
 }
 
 .postTitle {
+    /* font-family: Bebas Kai; */
     font-size: xx-large;
     padding-top: 1.5rem !important;
     padding-bottom: 1.5rem !important;

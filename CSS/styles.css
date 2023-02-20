@@ -1,10 +1,14 @@
 @font-face {
     font-family: Bebas Kai;
-    src: url(/font/BebasKai.ttf) format("truetype");
+    src: url(/fonts/BebasKai.ttf) format("truetype");
+}
+@font-face {
     font-family: Territory;
-    src: url(/font/Territory.ttf) format("truetype");
+    src: url(/fonts/Territory/Territory.ttf) format("truetype");
+}
+@font-face {
     font-family: Oswald;
-    src: url(/Font/Oswald-VariableFont_wght.ttf) format("truetype");
+    src: url(/Fonts/Oswald/Oswald-VariableFont_wght.ttf) format("truetype");
 }
 
 :root{
@@ -195,7 +199,7 @@ section {
 
 .postText {
     margin: 0 auto;
-    font-family: Open sans; /*fix font*/
+    /* font-family: Open sans; fix font */
     font-size: medium;
     padding: 2rem;
     color: black;
