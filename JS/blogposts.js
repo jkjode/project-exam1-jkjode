@@ -1,5 +1,5 @@
-const basicURL =
-  "https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts?_embed&per_page=10";
+// const basicURL =
+//   "https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts?_embed&page=1";
 
 const viewPost = document.getElementById("viewSpecificPost");
 const blogPostId = new URLSearchParams(window.location.search).get("id");
@@ -7,20 +7,26 @@ const blogSection = document.getElementById("postSection");
 const blogPreview = document.getElementById("blogPreview");
 const nextButton = document.querySelector("#next");
 const prevButton = document.querySelector("#prev");
+const pageNumberUp = document.querySelector("#more"); /* Maybe use later */
 
-fetch(basicURL)
-  .then((response) => response.json())
-  .then((data) => {
-    data.forEach((post) => {
-      console.log(post.id);
-    });
-  });
+let page = 1; /* test */
+
+const posts = [];
+
+// fetch(basicURL)
+//   .then((response) => response.json())
+//   .then((data) => {
+//     data.forEach((post) => {
+//       // console.log(post.id);
+//     });
+//   });
 
 const fetchPost = async () => {
   try {
-    const response = await fetch(basicURL);
+    const URL = `https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts?page=${page}&_embed`; /*test line remove later */
+    const response = await fetch(URL);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     console.log("Error");
@@ -28,21 +34,25 @@ const fetchPost = async () => {
   }
 };
 
+// if (pageNumberUp) {
+//   pageNumberUp.onclick = `let page = page +1`
+// };
+
 function getShorterDate(newString) {
   return newString.substring(0, 9);
 }
 
-fetch(basicURL)
-  .then((response) => response.json())
-  .then((data) => {
-    data.forEach((post) => {
-      console.log(JSON.stringify(post.featured_media));
-      console.log(JSON.stringify(post.title.rendered));
-      console.log(JSON.stringify(post.content.rendered));
-      console.log(post.featured_media.source_url);
-    });
-    return data;
-  });
+// fetch(basicURL)
+//   .then((response) => response.json())
+//   .then((data) => {
+//     data.forEach((post) => {
+//       console.log(JSON.stringify(post.featured_media));
+//       console.log(JSON.stringify(post.title.rendered));
+//       console.log(JSON.stringify(post.content.rendered));
+//       console.log(post.featured_media.source_url);
+//     });
+//     return data;
+//   });
 
 function displayPosts(posts) {
   posts.forEach((post) => {
@@ -140,6 +150,15 @@ function displayPreviewNew(posts, changeDirection = "none") {
   }
 }
 
+if (pageNumberUp) {
+  pageNumberUp.onclick = function () {
+    page++;
+    // fetchPost();
+    fetchPost().then((data) => {
+      displayPosts(data);
+    });
+  };
+}
 
 /* test */
 
@@ -147,7 +166,7 @@ fetchPost().then((data) => {
   console.log(data);
   if (viewPost) {
     const blogPostId = new URLSearchParams(window.location.search).get("id");
-    const post = data.find((post) => post.id == blogPostId);
+    const post = data.find((post) => post.id === blogPostId);
     const blogText = post.content.rendered;
     // console.log(blogPostId);
     // console.log(blogText);
@@ -159,6 +178,7 @@ fetchPost().then((data) => {
     }">
     <p class="postText">${blogText}</p>
     <div class="postDate">Written ${getShorterDate(post.date)}</div>
+    <p class="postDate">by ${post.author}</p>
     </div>
     `;
   } else if (blogPreview) {
