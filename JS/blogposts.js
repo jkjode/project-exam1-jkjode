@@ -1,6 +1,5 @@
 let page = 1; /* test */
 
-
 const URL =
   "https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts?_embed&page=1";
 
@@ -11,7 +10,6 @@ const blogPreview = document.getElementById("blogPreview");
 const nextButton = document.querySelector("#next");
 const prevButton = document.querySelector("#prev");
 const pageNumberUp = document.querySelector("#more"); /* Maybe use later */
-
 
 const posts = [];
 
@@ -27,8 +25,8 @@ const fetchPost = async () => {
   try {
     const URL = `https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts?page=${page}&_embed`; /*test line remove later */
     const response = await fetch(URL);
+    console.log(response);
     const data = await response.json();
-    // console.log(data);
     return data;
   } catch (error) {
     console.log("Error");
@@ -163,10 +161,11 @@ fetchPost().then((data) => {
   console.log(data);
   if (viewPost) {
     const blogPostId = new URLSearchParams(window.location.search).get("id");
-    const post = data.find((post) => post.id === blogPostId);
-    // const blogText = post.content.rendered;
+    const blogPostNumber = parseInt(blogPostId);
+    const post = data.find((post) => post.id === blogPostNumber);
+    const blogText = post.content.rendered;
     console.log(blogPostId);
-    // console.log(blogText);
+    console.log(blogText);
     viewPost.innerHTML = `
     <div class="chosenPost">
     <h2 class="postSpecific">${post.title.rendered}</h2>
@@ -174,8 +173,10 @@ fetchPost().then((data) => {
       post._embedded["wp:featuredmedia"][0].source_url
     }">
     <p class="postText">${post.content.rendered}</p>
-    <div class="postDate">Written ${getShorterDate(post.date)}</div>
-    <p class="postDate">by ${post.author}</p>
+    <div class="postData">
+    <p>Written ${getShorterDate(post.date)}</p>
+    <p>by ${post._embedded.author[0].name}</p>
+    </div>
     </div>
     `;
   } else if (blogPreview) {
@@ -196,3 +197,15 @@ if (prevButton) {
     await fetchPost().then((posts) => displayPreviewNew(posts, "previous"));
   };
 }
+
+const postImageURL = post._embedded["wp:featuredmedia"][0].source_url;
+const modal = document.createElement('div');
+modal.classList.add('modal');
+const modalContent =document.createElement('div');
+modalContent.classList.add('modal-content');
+const image = document.createElement('img');
+image.src= postImageURL;
+
+modalContent.appendChild(image);
+modal.appendChild(modalContent);
+document.body.appendChild(modal);

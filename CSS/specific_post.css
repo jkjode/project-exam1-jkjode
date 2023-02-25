@@ -11,7 +11,7 @@
 
 .postImage {
     width: 80%;
-    margin: 4rem 0;
+    margin-top: 5rem;
 }
 
 .postSpecific {
@@ -20,15 +20,12 @@
 }
 
 p {
-    /* color: red;
-    background-color: pink; */
     font-family: Oswald;
-    width: 80%;
 }
 
-.postDate {
-    font-family: Oswald;
-    margin: 4rem 0;
+.postData {
+    margin-top: 5rem;
+    margin-left: 2rem;
 }
 
 
@@ -38,6 +35,11 @@ p {
     }
 
     .postImage {
+        width: 90%;
+        margin-top: 2rem;
+    }
+
+    .postData {
         margin-top: 2rem;
     }
 }
