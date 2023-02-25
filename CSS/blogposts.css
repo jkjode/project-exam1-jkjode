@@ -33,7 +33,12 @@
 }
 
 .postText {
+    padding-bottom: 5rem;
     font-family: Oswald;
+}
+
+.postData {
+    padding-top: .5rem;
 }
 
 #more {

@@ -1,5 +1,8 @@
-// const basicURL =
-//   "https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts?_embed&page=1";
+let page = 1; /* test */
+
+
+const URL =
+  "https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts?_embed&page=1";
 
 const viewPost = document.getElementById("viewSpecificPost");
 const blogPostId = new URLSearchParams(window.location.search).get("id");
@@ -9,17 +12,16 @@ const nextButton = document.querySelector("#next");
 const prevButton = document.querySelector("#prev");
 const pageNumberUp = document.querySelector("#more"); /* Maybe use later */
 
-let page = 1; /* test */
 
 const posts = [];
 
-// fetch(basicURL)
-//   .then((response) => response.json())
-//   .then((data) => {
-//     data.forEach((post) => {
-//       // console.log(post.id);
-//     });
-//   });
+fetch(URL)
+  .then((response) => response.json())
+  .then((data) => {
+    data.forEach((post) => {
+      // console.log(post.id);
+    });
+  });
 
 const fetchPost = async () => {
   try {
@@ -34,15 +36,11 @@ const fetchPost = async () => {
   }
 };
 
-// if (pageNumberUp) {
-//   pageNumberUp.onclick = `let page = page +1`
-// };
-
 function getShorterDate(newString) {
   return newString.substring(0, 9);
 }
 
-// fetch(basicURL)
+// fetch(URL)
 //   .then((response) => response.json())
 //   .then((data) => {
 //     data.forEach((post) => {
@@ -66,8 +64,8 @@ function displayPosts(posts) {
       }" alt="${post.featured_media.slug}"/>
       <div class="postText">${
         post.excerpt.rendered
-      }<p class="postDate">Posted: ${getShorterDate(post.date)}</p>
-      <p class=postDate>Author: ${post._embedded.author[0].name}</p></div>
+      }<p class="postData">Posted: ${getShorterDate(post.date)}</p>
+      <p class=postData>Author: ${post._embedded.author[0].name}</p></div>
       </a>
       <div>`;
   });
@@ -107,9 +105,9 @@ function displayPreviewNew(posts, changeDirection = "none") {
       <img class="postImage" src="${
         post._embedded["wp:featuredmedia"][0].source_url
       }" alt="${post.featured_media.slug}"/>
-      <div class="postText">${
-        post.excerpt.rendered
-      }<p class="postDate">Posted: ${getShorterDate(post.date)}</p></div>
+      <div class="postTxt">
+      <p class="postText">${post.excerpt.rendered}</p>
+      <p class="postDate">Posted: ${getShorterDate(post.date)}</p></div>
       </a>
       <div>
       `;
@@ -124,9 +122,9 @@ function displayPreviewNew(posts, changeDirection = "none") {
       <img class="postImage" src="${
         post._embedded["wp:featuredmedia"][0].source_url
       }" alt="${post.featured_media.slug}"/>
-      <div class="postText">${
-        post.excerpt.rendered
-      }<p class="postDate">Posted: ${getShorterDate(post.date)}</p></div>
+      <div class="postTxt">
+      <p class="postText">${post.excerpt.rendered}</p>
+      <p class="postDate">Posted: ${getShorterDate(post.date)}</p></div>
       </a>
       <div>
       `;
@@ -141,9 +139,8 @@ function displayPreviewNew(posts, changeDirection = "none") {
       <img class="postImage" src="${
         post._embedded["wp:featuredmedia"][0].source_url
       }" alt="${post.featured_media.slug}"/>
-      <div class="postText">${
-        post.excerpt.rendered
-      }<p class="postDate">Posted: ${getShorterDate(post.date)}</p></div>
+      <div class="postTxt"><p class="postText">${post.excerpt.rendered}</p>
+      <p class="postDate">Posted: ${getShorterDate(post.date)}</p></div>
       </a>
       <div>
       `;
@@ -154,7 +151,6 @@ function displayPreviewNew(posts, changeDirection = "none") {
 if (pageNumberUp) {
   pageNumberUp.onclick = function () {
     page++;
-    // fetchPost();
     fetchPost().then((data) => {
       displayPosts(data);
     });
@@ -168,16 +164,16 @@ fetchPost().then((data) => {
   if (viewPost) {
     const blogPostId = new URLSearchParams(window.location.search).get("id");
     const post = data.find((post) => post.id === blogPostId);
-    const blogText = post.content.rendered;
-    // console.log(blogPostId);
-    console.log(blogText);
+    // const blogText = post.content.rendered;
+    console.log(blogPostId);
+    // console.log(blogText);
     viewPost.innerHTML = `
     <div class="chosenPost">
     <h2 class="postSpecific">${post.title.rendered}</h2>
     <img class="postImage" src="${
       post._embedded["wp:featuredmedia"][0].source_url
     }">
-    <p class="postText">${blogText}</p>
+    <p class="postText">${post.content.rendered}</p>
     <div class="postDate">Written ${getShorterDate(post.date)}</div>
     <p class="postDate">by ${post.author}</p>
     </div>
