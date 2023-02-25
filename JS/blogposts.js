@@ -66,7 +66,8 @@ function displayPosts(posts) {
       }" alt="${post.featured_media.slug}"/>
       <div class="postText">${
         post.excerpt.rendered
-      }<p class="postDate">Posted: ${getShorterDate(post.date)}</p></div>
+      }<p class="postDate">Posted: ${getShorterDate(post.date)}</p>
+      <p class=postDate>Author: ${post._embedded.author[0].name}</p></div>
       </a>
       <div>`;
   });
@@ -169,7 +170,7 @@ fetchPost().then((data) => {
     const post = data.find((post) => post.id === blogPostId);
     const blogText = post.content.rendered;
     // console.log(blogPostId);
-    // console.log(blogText);
+    console.log(blogText);
     viewPost.innerHTML = `
     <div class="chosenPost">
     <h2 class="postSpecific">${post.title.rendered}</h2>

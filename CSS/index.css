@@ -3,14 +3,14 @@
     width: 80vw;
     margin: 0 auto;
     position: relative;
-    border: green 2px solid;
+    /* border: green 2px solid; */
 }
 
 .carousel {
     width: 80vw;
     height: 100vh;
     position: relative;
-    border: darkblue 2px;
+    /* border: darkblue 2px; */
 }
 
 .carousel > ul {
@@ -70,8 +70,7 @@
     flex-direction: row;
     flex-wrap: no-wrap;
     gap: 2rem;
-    /* width: 90vw; */
-    border: red solid 2px;
+    /* border: red solid 2px; */
     max-width: 1400px;
     margin: 0 auto;
     max-height: fit-content;
@@ -80,13 +79,13 @@
 .post {
     min-width: 275px;
     background-color: rgba(255, 255, 255, 0.5);
-    border: #ffff00 solid 2px;
+    /* border: #ffff00 solid 2px; */
     height: fit-content;
     z-index: 1;
 }
 
 .postTitle {
-    /* font-family: Bebas Kai; */
+    font-family: Bebas Kai;
     font-size: xx-large;
     padding-top: 1.5rem !important;
     padding-bottom: 1.5rem !important;
@@ -118,13 +117,13 @@
     font-family: Bebas Kai;
     font-size: x-large;
     position: absolute;
-    margin-top: -22rem;
-    margin-left: 30rem;
-    /* align-content: center;     */
+    margin-top: -5rem;
+    margin-left: 40rem;
 }
 
-.buttonAllPosts button {
-    margin: 0 auto;
+.allButton {
+    margin-top: 2rem;
+    margin-left: 2rem;
 }
 
 
@@ -133,4 +132,30 @@
     #postSection {
         width: 280px;
     }
+
+    /* body {
+        position: relative;
+    } */
+
+    .slide {
+        display: flex;
+        flex-direction: column;
+        /* flex-wrap: no-wrap; */
+        gap: 2rem;
+        /* width: 90vw; */
+        /* border: red solid 2px; */
+        /* max-width: 1400px; */
+        margin: 0 auto;
+        max-height: fit-content;
+    }
+
+    .postText {
+        /* display: none; */
+    }
+
+    #prev,
+    #next {
+        display: none;
+    }
+
 }

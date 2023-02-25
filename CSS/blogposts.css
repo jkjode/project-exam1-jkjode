@@ -67,4 +67,8 @@
     .post {
         margin: 0 auto;
     }
+
+    #more {
+        margin-left: 5rem;
+    }
 }
