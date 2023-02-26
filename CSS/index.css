@@ -172,7 +172,7 @@
     }
 
     .buttonAllPosts {
-    display: hidden;
+    display: none;
     }
 
 }
