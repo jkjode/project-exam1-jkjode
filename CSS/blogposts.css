@@ -12,13 +12,14 @@
 }
 
 .post {
+    margin-top: 15rem;
     max-width: 350px;
     background-color: rgba(255, 255, 255, 0.5);
     max-height: 1000px;
 }
 
 .postTitle {
-    /* font-family: Bebas Kai; */
+    font-family: Bebas Kai;
     height: 120px;
     font-size: xx-large;
     padding-top: 1.5rem !important;
@@ -33,6 +34,7 @@
     height: 200px;
     object-fit: cover;
     padding-left: 2rem;
+    margin: 0;
 }
 
 .postText {
@@ -82,7 +84,7 @@ p {
     }
 
     .postImage {
-        /* width: 50vw; */
+        width: 70vw;
     }
 
     .postText img{
