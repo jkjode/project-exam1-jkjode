@@ -20,10 +20,7 @@
     margin: 0;
 }
 
-html,
-body {
-    height: 100%;
-}
+/* Only styling for header and footer with content + body background */
 
 header {
     position: fixed;
@@ -46,16 +43,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* gap: 100px; */
     height: 100%;
     padding: 0 100px;
-    /* margin: 0 auto;
-    width: 1000px; */
 }
 
 .logo {
-    /* margin-top: 1rem;
-    margin-left: 15rem; */
     max-height: 5rem;
     }
 
@@ -77,12 +69,8 @@ header {
 
 #pageTitle {
     font-family: Territory;
-    /* font-size: clamp(2rem, 4vw + 1rem, 5rem); */
     font-size: 4rem;
     color: var(--sm-color);
-    /* margin-left: 30rem;
-    margin-top: -4.5rem;
-    align-content: center; */
     letter-spacing: 1.5px;
     white-space: nowrap;
 }
@@ -99,23 +87,6 @@ li {
 a {
     color: var(--sm-color);
     text-decoration: none;    
-}
-
-.navContainer {
-    /* max-width: 100%;
-    height: 3rem;
-    width: 90%;
-    margin: 0 auto;
-    background-color: pink; */
-}
-
-.navbar {
-    /* min-height: 70px;
-    margin-left: 65rem;
-    margin-top: -4rem; */
-    /* display: flex; */
-    /* justify-content: space-between;
-    align-items: center; */
 }
 
 .navMenu {
@@ -159,12 +130,6 @@ a {
     margin-top: .2rem;
 }
 
-
-
-/* nav hamburger */
-
-
-
 /* BODY */
 
 body {
@@ -172,82 +137,34 @@ body {
     position: relative; 
 }
 
-/*Content section*/
-
-section {
-
-}
-
-#postSection {
-    margin: 0 auto;
-    padding-top: 20rem;
-    margin-bottom: 5rem;
-    align-content: auto 0;
-    /* border: orange 5px solid; */
-}
-
-.post {
-    /* width: 90%;
-    margin-top: 5rem;
-    margin-left: 5rem;
-    border: red 4px solid; */
-}
-
-.postImage {
-    /* size: 90%;
-    border: #ffff00 3px solid;
-    padding-top: 2rem;
-    margin: 0 auto; */
-    }
-
-.postTitle {
-    /* width: 100%;*/
-    font-family: Bebas Kai;
-    font-size: 3rem;
-    /* border: blue 1px solid; */
-    margin: 0 auto;
-    max-width: 700px;
-    padding: 3rem;
-}
-
-.postText {
-    margin: 0 auto;
-    /* font-family: Open sans; fix font */
-    font-size: medium;
-    padding: 2rem;
-    color: black;
-    /* border: green 1px solid; */
-    max-width: 700px;
-}
-
-.postDate {
-    padding: 1rem 0;
-}
-
-.postText img {
-    padding-top: 5rem;
-}
-
-/* FOOTER */
-
 footer {
     border-top: solid 1px;
     background-image: url("/images/team/Streamer_nothing.png");
     width: 100%;
     height: 3rem;
-    padding-top: 10px;
-    bottom: 0;
-    left: 0;
-    text-align: center;
-    color: var(--sm-color);
     margin-top: 10rem;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    z-index: 12;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
 }
 
 .footerContent {
     font-family: Bebas Kai;
     font-size: large;
     padding-top: 1rem;
+    color: var(--sm-color);
+    margin: 0 auto;
 }
+
+.footerImg {
+    text-align: center;
+    scale: .7;
+}
+
 
 @media(max-width:1020px){
 
@@ -265,9 +182,7 @@ footer {
     }
 
     .outerNavContainer {
-        /* width: 80vw; */
         padding: 0;
-        /* margin: 0 auto; */
         position: relative;
     }
 
@@ -277,7 +192,6 @@ footer {
     }
 
     .navContainer{
-        /* position: relative; */
         width: 100vw;
     }
 
@@ -291,8 +205,6 @@ footer {
         right: 0;
         top: 130px;
         width: 100%;
-        /* width: 100vw; */
-        /* display: hidden; */
     }
 
     .navMenu {
@@ -314,10 +226,6 @@ footer {
         margin: 16px 0;
     }
 
-    /* .navBar.active{
-        display: block;
-    } */
-
     footer {
         padding-top: .2rem;
     }
@@ -325,14 +233,4 @@ footer {
     .hidden {
         display: none;
     }
-
-    .postText img{
-        width: 80vw;
-        height: 50%;
-    }
-
-    .post {
-        margin: 5rem auto;
-    }
-    
 }

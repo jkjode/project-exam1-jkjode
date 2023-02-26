@@ -1,4 +1,4 @@
-let page = 1; /* test */
+let page = 1; 
 
 const URL =
   "https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts?_embed&page=1";
@@ -9,7 +9,7 @@ const blogSection = document.getElementById("postSection");
 const blogPreview = document.getElementById("blogPreview");
 const nextButton = document.querySelector("#next");
 const prevButton = document.querySelector("#prev");
-const pageNumberUp = document.querySelector("#more"); /* Maybe use later */
+const pageNumberUp = document.querySelector("#more"); 
 
 const posts = [];
 
@@ -17,7 +17,6 @@ fetch(URL)
   .then((response) => response.json())
   .then((data) => {
     data.forEach((post) => {
-      // console.log(post.id);
     });
   });
 
@@ -25,7 +24,7 @@ const fetchPost = async () => {
   try {
     const URL = `https://examone.joakimkjode.com/blog//wp-json/wp/v2/posts?page=${page}&_embed`; /*test line remove later */
     const response = await fetch(URL);
-    console.log(response);
+    // console.log(response);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -37,18 +36,6 @@ const fetchPost = async () => {
 function getShorterDate(newString) {
   return newString.substring(0, 9);
 }
-
-// fetch(URL)
-//   .then((response) => response.json())
-//   .then((data) => {
-//     data.forEach((post) => {
-//       console.log(JSON.stringify(post.featured_media));
-//       console.log(JSON.stringify(post.title.rendered));
-//       console.log(JSON.stringify(post.content.rendered));
-//       console.log(post.featured_media.source_url);
-//     });
-//     return data;
-//   });
 
 function displayPosts(posts) {
   posts.forEach((post) => {
@@ -69,7 +56,6 @@ function displayPosts(posts) {
   });
 }
 
-/* test */
 
 function displayPreview(posts) {
   blogPreview.innerHTML = "";
@@ -155,23 +141,28 @@ if (pageNumberUp) {
   };
 }
 
-/* test */
-
 fetchPost().then((data) => {
-  console.log(data);
+  // console.log(data);
   if (viewPost) {
     const blogPostId = new URLSearchParams(window.location.search).get("id");
     const blogPostNumber = parseInt(blogPostId);
     const post = data.find((post) => post.id === blogPostNumber);
     const blogText = post.content.rendered;
-    console.log(blogPostId);
-    console.log(blogText);
+    // console.log(blogPostId);
+    // console.log(blogText);
     viewPost.innerHTML = `
     <div class="chosenPost">
-    <h2 class="postSpecific">${post.title.rendered}</h2>
+    <div class="titleOfPost"><h2 class="postSpecific">${post.title.rendered}</h2></div>
     <img class="postImage" src="${
       post._embedded["wp:featuredmedia"][0].source_url
     }">
+    <div id="modal" style="display:none">
+    <div class="modal-content">
+      <img id="mImg" src="${
+        post._embedded["wp:featuredmedia"][0].source_url
+      }" />
+    </div>
+  </div>
     <p class="postText">${post.content.rendered}</p>
     <div class="postData">
     <p>Written ${getShorterDate(post.date)}</p>
@@ -186,6 +177,8 @@ fetchPost().then((data) => {
   }
 });
 
+/* Next/Prev button */
+
 if (nextButton) {
   nextButton.onclick = async function () {
     await fetchPost().then((posts) => displayPreviewNew(posts, "next"));
@@ -198,14 +191,17 @@ if (prevButton) {
   };
 }
 
-const postImageURL = post._embedded["wp:featuredmedia"][0].source_url;
-const modal = document.createElement('div');
-modal.classList.add('modal');
-const modalContent =document.createElement('div');
-modalContent.classList.add('modal-content');
-const image = document.createElement('img');
-image.src= postImageURL;
+/* Modal */
 
-modalContent.appendChild(image);
-modal.appendChild(modalContent);
-document.body.appendChild(modal);
+if (viewSpecificPost) {
+  const imageFromSpecificPost = document.querySelector(".mImg");
+  imageFromSpecificPost.onclick = function () {
+    mImg.src = imageFromSpecificPost.src;
+    modal.style.display = "block";
+  };
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+}

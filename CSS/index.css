@@ -1,9 +1,19 @@
+.trendingPosts {
+    margin-top: 5rem;
+}
+
 .previewSection {
     padding-top: 15rem;
     width: 80vw;
     margin: 0 auto;
     position: relative;
+    height: fit-content;
     /* border: green 2px solid; */
+}
+
+.carousel-container {
+    height: fit-content;
+    margin: 0 auto;
 }
 
 .carousel {
@@ -74,14 +84,16 @@
     max-width: 1400px;
     margin: 0 auto;
     max-height: fit-content;
+    padding-bottom: 6rem;
+
 }
 
 .post {
     min-width: 275px;
     background-color: rgba(255, 255, 255, 0.5);
-    /* border: #ffff00 solid 2px; */
     height: fit-content;
     z-index: 1;
+    margin-left: 1rem;
 }
 
 .postTitle {
@@ -95,14 +107,15 @@
 }
 
 .postImage {
-    /* width: 100%; */
+    width: 100%;
     height: 200px;
     object-fit: cover;
-    padding: 0 2rem;
+    /* padding: 0 2rem; */
 }
 
 .postText {
     font-family: Oswald;
+    color: black;
 }
 
 .buttonAllPosts {
@@ -117,7 +130,7 @@
     font-family: Bebas Kai;
     font-size: x-large;
     position: absolute;
-    margin-top: -5rem;
+    margin-top: -20rem;
     margin-left: 40rem;
 }
 
@@ -156,6 +169,10 @@
     #prev,
     #next {
         display: none;
+    }
+
+    .buttonAllPosts {
+    display: hidden;
     }
 
 }
